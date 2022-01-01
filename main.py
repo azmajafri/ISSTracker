@@ -4,15 +4,26 @@ import urllib.request
 import time
 import webbrowser
 import geocoder
+import pandas as pd
 
 from datetime import datetime
+from datetime import timedelta
 
 #user enter the date and time
 my_string = str(input('Enter date(yyyy-mm-dd hh:mm): '))
 my_date = datetime.strptime(my_string, "%Y-%m-%d %H:%M")
 
+n = 10
+past_time = my_date - pd.DateOffset (minutes=n)
+print (past_time)
+
+
 #display the date and time that user enter
 print(my_date)
+
+n = 10
+ahead_time = my_date + timedelta (minutes=n)
+print (ahead_time)
 
 url = "http://api.open-notify.org/astros.json"
 response = urllib.request.urlopen(url)
@@ -56,4 +67,4 @@ while True:
 
     iss.goto(lat, lon)
 
-    time.sleep(15)
+    time.sleep(600)
