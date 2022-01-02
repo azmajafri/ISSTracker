@@ -13,14 +13,16 @@ from datetime import timedelta
 my_string = str(input('Enter date(yyyy-mm-dd hh:mm): '))
 my_date = datetime.strptime(my_string, "%Y-%m-%d %H:%M")
 
+#for past_time in range(6): 
+# decrement of time 10 minutes   
 n = 10
 past_time = my_date - pd.DateOffset (minutes=n)
 print (past_time)
 
-
 #display the date and time that user enter
 print(my_date)
 
+#increment of time 10 minutes
 n = 10
 ahead_time = my_date + timedelta (minutes=n)
 print (ahead_time)
@@ -33,7 +35,7 @@ file.write("There are currently" +
             str(result["number"]) + "astronout on ISS: \n\n")
 people = result["people"]
 for p in people:
-    file.write(p['name'] + " - on boeard" + "\n")
+    file.write(p['name'] + " - on board" + "\n")
 
 g = geocoder.ip("me")
 file.write("\nYour current latitude / longitude is: " + str(g.latlng))
@@ -44,13 +46,14 @@ screen = turtle.Screen()
 screen.setup(1280, 720)
 screen.setworldcoordinates(-180, -90, 180, 90)
 
-screen.bgpic("map.gif")
+screen.bgpic("maps.gif")
 screen.register_shape("iss.gif")
 iss = turtle.Turtle()
 iss.shape("iss.gif")
 iss.setheading(45)
 iss.penup()
 
+#show the location (lat/lon) of the iss
 while True:
     url = "http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(url)
@@ -67,4 +70,5 @@ while True:
 
     iss.goto(lat, lon)
 
+#location of the iss every 10 mins
     time.sleep(600)
