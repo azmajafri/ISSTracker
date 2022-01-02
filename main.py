@@ -42,6 +42,7 @@ file.write("\nYour current latitude / longitude is: " + str(g.latlng))
 file.close()
 webbrowser.open("issDetails.txt")
 
+#set the world map in turtle module
 screen = turtle.Screen()
 screen.setup(1280, 720)
 screen.setworldcoordinates(-180, -90, 180, 90)
@@ -53,21 +54,25 @@ iss.shape("iss.gif")
 iss.setheading(45)
 iss.penup()
 
+#the location (lat/lon) of the ISS
 while True:
     url = "http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(url)
     result = json.loads(response.read())
-
+    
+    #The ISS location
     location = result["iss_position"]
     lat = location['latitude']
     lon = location['longitude']
-
+    
+    #Output of the latitude and longitude
     lat = float(lat)
     lon = float(lon)
     print("\nLatitude: " + str(lat))
     print("\nLongitude: " + str(lon))
-
+    
+    #Upate the lotitude and longitude
     iss.goto(lat, lon)
 
-#location of the iss every 10 mins
+    #change location of the iss every 10 mins
     time.sleep(600)
