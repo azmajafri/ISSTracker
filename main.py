@@ -12,8 +12,7 @@ from datetime import timedelta
 #user enter the date and time
 my_string = str(input('Enter date(yyyy-mm-dd hh:mm): '))
 my_date = datetime.strptime(my_string, "%Y-%m-%d %H:%M")
-
-#for past_time in range(6): 
+ 
 # decrement of time 10 minutes   
 n = 10
 past_time = my_date - pd.DateOffset (minutes=n)
