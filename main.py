@@ -37,6 +37,7 @@ people = result["people"]
 for p in people:
     file.write(p['name'] + " - on board" + "\n")
 
+#print the latitude and longitude
 g = geocoder.ip("me")
 file.write("\nYour current latitude / longitude is: " + str(g.latlng))
 file.close()
@@ -53,7 +54,6 @@ iss.shape("iss.gif")
 iss.setheading(45)
 iss.penup()
 
-#show the location (lat/lon) of the iss
 while True:
     url = "http://api.open-notify.org/iss-now.json"
     response = urllib.request.urlopen(url)
