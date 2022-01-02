@@ -1,0 +1,14 @@
+There are currently10astronout on ISS: 
+
+Mark Vande Hei - on board
+Pyotr Dubrov - on board
+Anton Shkaplerov - on board
+Zhai Zhigang - on board
+Wang Yaping - on board
+Ye Guangfu - on board
+Raja Chari - on board
+Tom Marshburn - on board
+Kayla Barron - on board
+Matthias Maurer - on board
+
+Your current latitude / longitude is: [3.1412, 101.6865]
